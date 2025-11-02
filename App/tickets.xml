@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<app_tickets>
+  <clientes>
+    <usuario dni="49713276H" nombre="Yo" email="direccionfalsa@correofalso.com" tipo="Cliente" />
+  </clientes>
+  <personal>
+    <usuario dni="49713276H" nombre="Yo si trabajase" email="yo@empresamalvada.com" tipo="Personal" />
+  </personal>
+  <tickets>
+    <ticket encargado="49713276H" cliente="49713276H" asunto="Hacer trabajo DIA" resultado="EN_TRAMITE" estado="ABIERTO">
+      <nota>Fecha entrega individual: 25/11/06</nota>
+      <nota>Fecha entrega grupal: no me acuerdo</nota>
+    </ticket>
+  </tickets>
+</app_tickets>
