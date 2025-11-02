@@ -1,0 +1,33 @@
+ Una aplicación de gestión de tickets que ayuda a un equipo de mantenimiento a llevar la cuenta de los tickets pendientes y cerrados.
+
+  - Gestión de clientes (altas, bajas, modificaciones, salvaguarda y recuperación.
+    - DNI
+    - Nombre
+    - Email
+  - Gestión de personal (altas, bajas, modificaciones, consultas(tickets asignados por estado)), salvaguarda y recuperación.
+    - DNI
+    - Nombre
+    - Email
+    - Tickets asignados
+  - Gestión de tickets (altas, bajas, modificaciones, salvaguarda y recuperación).
+    - Trabajador encargado
+    - Cliente origen del ticket
+    - Asunto
+    - Notas
+    - Resultado (en trámite, imposible, solucionado)
+    - Estado (abierto, cerrado)
+  - Búsquedas
+    - Trabajador encargado
+    - Cliente origen del ticket
+    - Resultado (en trámite, imposible, solucionado)
+    - Estado (abierto, cerrado)
+  - Gráficos
+    - Tickets (según estado).
+    - Trabajador encargado
+    - Cliente origen del ticket
+    - Resultado (en trámite, imposible, solucionado)
+  - Estadísticas
+    - Tickets (según estado).
+    - Trabajador encargado
+    - Cliente origen del ticket
+    - Resultado (en trámite, imposible, solucionado)
