@@ -1,9 +1,50 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="App.MainWindow"
-        Title="App">
-    Welcome to Avalonia!
+        xmlns:vm="using:TicketStats.View"
+        x:Class="TicketStats.View.MainWindow"
+        x:DataType="vm:StatisticsViewModel" 
+        Width="980" Height="620" Title="Estadísticas — Tickets (dummy)">
+ <Window.DataContext>
+    <vm:StatisticsViewModel/>
+  </Window.DataContext>
+
+
+  <DockPanel Margin="12">
+    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Spacing="8">
+      <Button Content="Refrescar estadísticas" Click="Refrescar_Click"/>
+    </StackPanel>
+
+    <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="Auto,*" Margin="0,8,0,0">
+      <TextBlock Grid.Column="0" Text="Tickets según estado" FontWeight="Bold" Margin="4"/>
+      <TextBlock Grid.Column="1" Text="Por Trabajador" FontWeight="Bold" Margin="4"/>
+      <TextBlock Grid.Column="2" Text="Por Cliente" FontWeight="Bold" Margin="4"/>
+      <TextBlock Grid.Column="3" Text="Según Resultado" FontWeight="Bold" Margin="4"/>
+
+      <Border Grid.Row="1" Grid.Column="0" Margin="4" Padding="8" BorderThickness="1" CornerRadius="6">
+        <ScrollViewer>
+          <TextBlock Text="{Binding TicketsPorEstadoText}" FontFamily="Consolas" />
+        </ScrollViewer>
+      </Border>
+
+      <Border Grid.Row="1" Grid.Column="1" Margin="4" Padding="8" BorderThickness="1" CornerRadius="6">
+        <ScrollViewer>
+          <TextBlock Text="{Binding PorTrabajadorText}" FontFamily="Consolas" />
+        </ScrollViewer>
+      </Border>
+
+      <Border Grid.Row="1" Grid.Column="2" Margin="4" Padding="8" BorderThickness="1" CornerRadius="6">
+        <ScrollViewer>
+          <TextBlock Text="{Binding PorClienteText}" FontFamily="Consolas" />
+        </ScrollViewer>
+      </Border>
+
+      <Border Grid.Row="1" Grid.Column="3" Margin="4" Padding="8" BorderThickness="1" CornerRadius="6">
+        <ScrollViewer>
+          <TextBlock Text="{Binding PorResultadoText}" FontFamily="Consolas" />
+        </ScrollViewer>
+      </Border>
+    </Grid>
+  </DockPanel>
+
+
 </Window>

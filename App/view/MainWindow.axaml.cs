@@ -1,11 +1,25 @@
+
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 
-namespace App;
 
-public partial class MainWindow : Window
+namespace TicketStats.View
 {
-    public MainWindow()
+
+    public partial class MainWindow : Window
     {
-        InitializeComponent();
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+
+        private void Refrescar_Click(object? sender, RoutedEventArgs e)
+        {
+            if (DataContext is StatisticsViewModel vm)
+                vm.Recalcular(); 
+        }
     }
+
+
 }
+
