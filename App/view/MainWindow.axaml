@@ -2,8 +2,108 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        xmlns:models="clr-namespace:App.Models"
+        mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="550"
         x:Class="App.MainWindow"
-        Title="App">
-    Welcome to Avalonia!
+        Title="Gestión de Clientes">
+    <Grid RowDefinitions="Auto,*" Margin="16">
+        <StackPanel Orientation="Horizontal" Spacing="12">
+            <TextBlock Text="Gestión de Clientes" FontSize="24" FontWeight="Bold"/>
+            <TextBlock Text="Crea, edita, elimina y guarda la información de tus clientes." VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1" ColumnDefinitions="2*,3*" RowDefinitions="Auto,*" ColumnSpacing="16" RowSpacing="12">
+            <Border Grid.Column="0"
+                    Grid.Row="1"
+                    BorderBrush="Silver"
+                    BorderThickness="1"
+                    CornerRadius="6"
+                    Padding="12">
+                <StackPanel>
+                    <TextBlock Text="Listado" FontWeight="Bold" FontSize="16" Margin="0,0,0,8"/>
+                    <ListBox x:Name="ClientesListBox"
+                             SelectionChanged="ClientesListBox_OnSelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate x:DataType="models:Cliente">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Nombre}" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding Email}" FontSize="12" Foreground="Gray"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="1"
+                    Grid.Row="1"
+                    BorderBrush="Silver"
+                    BorderThickness="1"
+                    CornerRadius="6"
+                    Padding="12">
+                <StackPanel>
+                    <TextBlock Text="Detalles" FontWeight="Bold" FontSize="16" Margin="0,0,0,12"/>
+                    <Button x:Name="ToggleModoButton"
+                            Content="Modo: Crear"
+                            HorizontalAlignment="Left"
+                            Margin="0,0,0,12"
+                            Click="ToggleModo_OnClick"/>
+                    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+                          ColumnDefinitions="Auto,*"
+                          RowSpacing="8"
+                          ColumnSpacing="12">
+                        <TextBlock Text="ID" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+                        <TextBox x:Name="IdTextBox"
+                                 Grid.Row="0"
+                                 Grid.Column="1"
+                                 Margin="0,4,0,0"
+                                 Watermark="Introduce un número entero"
+                                 HorizontalAlignment="Stretch"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Nombre" Margin="0,8,0,0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="NombreTextBox"
+                                 Grid.Row="1"
+                                 Grid.Column="1"
+                                 Margin="0,8,0,0"
+                                 HorizontalAlignment="Stretch"/>
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Email" Margin="0,8,0,0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="EmailTextBox"
+                                 Grid.Row="2"
+                                 Grid.Column="1"
+                                 Margin="0,8,0,0"
+                                 HorizontalAlignment="Stretch"/>
+
+                        <UniformGrid Grid.Row="3"
+                                     Grid.ColumnSpan="2"
+                                     Columns="2"
+                                     Margin="0,16,0,0"
+                                     ColumnSpacing="8"
+                                     RowSpacing="8">
+                            <Button Content="Crear / Actualizar" Click="GuardarCliente_OnClick"/>
+                            <Button Content="Eliminar" Click="EliminarCliente_OnClick"/>
+                            <Button Content="Nuevo" Click="LimpiarFormulario_OnClick"/>
+                            <Button Content="Recargar lista" Click="RecargarClientes_OnClick"/>
+                        </UniformGrid>
+
+                        <UniformGrid Grid.Row="4"
+                                     Grid.ColumnSpan="2"
+                                     Columns="2"
+                                     Margin="0,16,0,0"
+                                     ColumnSpacing="8">
+                            <Button Content="Guardar en archivo" Click="GuardarArchivo_OnClick"/>
+                            <Button Content="Cargar desde archivo" Click="CargarArchivo_OnClick"/>
+                        </UniformGrid>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <TextBlock Grid.Row="0"
+                       Grid.ColumnSpan="2"
+                       x:Name="StatusTextBlock"
+                       Foreground="Gray"
+                       FontStyle="Italic"
+                       Text="Selecciona un cliente o ingresa la información para crear uno nuevo."/>
+        </Grid>
+    </Grid>
 </Window>
