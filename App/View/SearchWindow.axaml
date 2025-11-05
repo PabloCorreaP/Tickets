@@ -1,0 +1,31 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+		Width="450" Height="400"
+        MinWidth="350" MinHeight="200"
+        MaxWidth="550" MaxHeight="300"
+        x:Class="App.View.SearchWindow"
+        Title="Busqueda">
+
+	<StackPanel>
+		<TextBlock Margin="5">Menú para buscar un ticket</TextBlock>
+
+		<DockPanel Margin="10" Name="PersonalNameDP">
+			<Label DockPanel.Dock="Left" Padding="5">Trabajador encargado</Label>
+			<TextBox Padding="10" Name="PersonalName"></TextBox>
+		</DockPanel>
+
+		<DockPanel Margin="10" Name="ClientNameDP">
+			<Label DockPanel.Dock="Left" Padding="5">Cliente</Label>
+			<TextBox Padding="10" Name="ClientName"></TextBox>
+		</DockPanel>
+
+	
+		<StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Right">
+			<Button Padding="10" Name="SearchBT">Buscar</Button>
+			<Button Padding="10" Name="CancelButton">Cancelar</Button>
+		</StackPanel>
+	</StackPanel>
+</Window>

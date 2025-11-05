@@ -1,0 +1,30 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="App.ResultadoBusqueda"
+		Width="450" Height="400"
+        MinWidth="350" MinHeight="200"
+        MaxWidth="550" MaxHeight="400"
+        Title="ResultadoBusqueda">
+	<StackPanel Margin="10">
+		<TextBlock Margin="5">Resultados:</TextBlock>
+		<TextBlock Margin="5" Name="FailTickets">No se han encontrado tickets.</TextBlock>
+		<ListBox x:Name="ResultadoLB"	
+			Height="300"
+			ScrollViewer.VerticalScrollBarVisibility="Auto" >
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Border BorderBrush="Blue" BorderThickness="1"
+							CornerRadius="4" Padding="4">
+						<TextBlock Text="{Binding}"/>
+					</Border>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Right">
+			<Button Padding="10" Name="CancelButton">Cancelar</Button>
+		</StackPanel>
+	</StackPanel>
+</Window>

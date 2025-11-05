@@ -2,8 +2,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		Width="450" Height="400"
+        MinWidth="350" MinHeight="200"
+        MaxWidth="550" MaxHeight="300"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="App.MainWindow"
+        x:Class="App.View.MainWindow"
         Title="App">
-    Welcome to Avalonia!
+	<Button
+			Name="BtBusqueda"
+			Content="Buscar ticket"
+			Margin="5"
+			HorizontalContentAlignment="Center" 
+			HorizontalAlignment="Center"
+			 />
 </Window>

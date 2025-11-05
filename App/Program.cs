@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using System;
 
-namespace App;
+namespace App.View;
 
 class Program
 {
