@@ -1,0 +1,33 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="App.View.Tickets"
+        Title="App">
+        <StackPanel>
+                <Label>Encargado</Label>
+                <TextBox Name="f_encargado" />
+                <Label>Cliente</Label>
+                <TextBox Name="f_cliente" />
+                <Label>Asunto</Label>
+                <TextBox Name="f_asunto" />
+                <Label>Notas</Label>
+                <TextBox Name="f_notas" AcceptsReturn="True" TextWrapping="Wrap" />
+                <Label>Resultado</Label>
+                <ComboBox SelectedIndex="0" Name="f_res">
+                        <ComboBoxItem>No Iniciado</ComboBoxItem>
+                        <ComboBoxItem>En Tramite</ComboBoxItem>
+                        <ComboBoxItem>Imposible</ComboBoxItem>
+                        <ComboBoxItem>Solucionado</ComboBoxItem>
+                </ComboBox>
+                <Label>Cerrado</Label>
+                <CheckBox Name="f_cerrado" />
+                <StackPanel Orientation="Horizontal">
+                        <Button Click="OnPrev" Name="b_prev">Anterior</Button>
+                        <Button Click="OnNext" Name="b_next">Siguiente</Button>
+                        <Button Click="OnDelete" Name="b_delete">Eliminar</Button>
+                        <Button Click="OnCreate" Name="b_create">Crear</Button>
+                </StackPanel>
+        </StackPanel>
+</Window>
