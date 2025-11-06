@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTrabajador xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Trabajador>
+    <DNI>12345678A</DNI>
+    <Nombre>María García López</Nombre>
+    <Email>maria.garcia@tickets.com</Email>
+    <Tickets />
+  </Trabajador>
+
+  <Trabajador>
+    <DNI>87654321B</DNI>
+    <Nombre>Carlos Rodríguez Martín</Nombre>
+    <Email>carlos.rodriguez@tickets.com</Email>
+    <Tickets />
+  </Trabajador>
+
+  <Trabajador>
+    <DNI>45678912C</DNI>
+    <Nombre>Ana Fernández Sánchez</Nombre>
+    <Email>ana.fernandez@tickets.com</Email>
+    <Tickets />
+  </Trabajador>
+
+  <Trabajador>
+    <DNI>65432198D</DNI>
+    <Nombre>Roberto Jiménez Pérez</Nombre>
+    <Email>roberto.jimenez@tickets.com</Email>
+    <Tickets />
+  </Trabajador>
+</ArrayOfTrabajador>

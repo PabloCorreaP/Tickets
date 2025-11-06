@@ -1,0 +1,174 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- Definición de Colores de la Paleta - MODO OSCURO -->
+    <Styles.Resources>
+        <!-- Paleta de Colores Principal -->
+        <Color x:Key="PrimaryBlue">#4F7CAC</Color>          <!-- Azul principal -->
+        <Color x:Key="LightAqua">#C0E0DE</Color>            <!-- Verde claro/agua -->
+        <Color x:Key="DarkGreen">#162521</Color>            <!-- Verde muy oscuro - fondo principal -->
+        <Color x:Key="DarkGrayBlue">#3C474B</Color>         <!-- Gris azulado oscuro -->
+        <Color x:Key="BrightAqua">#9EEFE5</Color>           <!-- Verde agua claro -->
+        
+        <!-- Colores Derivados para Modo Oscuro -->
+        <Color x:Key="PrimaryBlueDark">#3A5D82</Color>      <!-- Azul más oscuro -->
+        <Color x:Key="PrimaryBlueLight">#6B8FB3</Color>     <!-- Azul más claro -->
+        <Color x:Key="BackgroundPrimary">#162521</Color>    <!-- Fondo principal oscuro -->
+        <Color x:Key="BackgroundSecondary">#3C474B</Color>  <!-- Fondo secundario -->
+        <Color x:Key="SurfaceColor">#2A3A3F</Color>         <!-- Superficie oscura -->
+        <Color x:Key="TextPrimary">#C0E0DE</Color>          <!-- Texto principal claro -->
+        <Color x:Key="TextSecondary">#9EEFE5</Color>        <!-- Texto secundario -->
+        <Color x:Key="AccentColor">#4F7CAC</Color>          <!-- Color de acento -->
+        
+        <!-- Brushes -->
+        <SolidColorBrush x:Key="PrimaryBlueBrush" Color="{StaticResource PrimaryBlue}"/>
+        <SolidColorBrush x:Key="LightAquaBrush" Color="{StaticResource LightAqua}"/>
+        <SolidColorBrush x:Key="DarkGreenBrush" Color="{StaticResource DarkGreen}"/>
+        <SolidColorBrush x:Key="DarkGrayBlueBrush" Color="{StaticResource DarkGrayBlue}"/>
+        <SolidColorBrush x:Key="BrightAquaBrush" Color="{StaticResource BrightAqua}"/>
+        <SolidColorBrush x:Key="SurfaceBrush" Color="{StaticResource SurfaceColor}"/>
+        <SolidColorBrush x:Key="TextPrimaryBrush" Color="{StaticResource TextPrimary}"/>
+        <SolidColorBrush x:Key="TextSecondaryBrush" Color="{StaticResource TextSecondary}"/>
+        <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}"/>
+        <SolidColorBrush x:Key="BackgroundPrimaryBrush" Color="{StaticResource BackgroundPrimary}"/>
+        <SolidColorBrush x:Key="BackgroundSecondaryBrush" Color="{StaticResource BackgroundSecondary}"/>
+    </Styles.Resources>
+
+    <!-- Estilo para la Ventana Principal - MODO OSCURO -->
+    <Style Selector="Window">
+        <Setter Property="Background" Value="{StaticResource BackgroundPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+    </Style>
+
+    <!-- Estilo para TextBlocks principales (títulos) -->
+    <Style Selector="TextBlock.title">
+        <Setter Property="Foreground" Value="{StaticResource AccentBrush}"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+    <!-- Estilo para TextBlocks secundarios -->
+    <Style Selector="TextBlock.subtitle">
+        <Setter Property="Foreground" Value="{StaticResource TextSecondaryBrush}"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+    <!-- Estilos para Botones - MODO OSCURO con hover estable -->
+    <Style Selector="Button">
+        <Setter Property="Background" Value="{StaticResource BackgroundSecondaryBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="12,6"/>
+        <Setter Property="CornerRadius" Value="4"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="Opacity" Value="1"/>
+    </Style>
+
+    <!-- Botón Primario (accent) -->
+    <Style Selector="Button.accent">
+        <Setter Property="Background" Value="{StaticResource AccentBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Opacity" Value="1"/>
+    </Style>
+
+    <!-- Hover para botones normales - SIN desaparecer -->
+    <Style Selector="Button:pointerover">
+        <Setter Property="Background" Value="{StaticResource AccentBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource TextSecondaryBrush}"/>
+        <Setter Property="Opacity" Value="0.9"/>
+    </Style>
+
+    <!-- Hover para botón primario - SIN desaparecer -->
+    <Style Selector="Button.accent:pointerover">
+        <Setter Property="Background" Value="{StaticResource PrimaryBlueBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Opacity" Value="0.8"/>
+    </Style>
+
+    <!-- Pressed para botones -->
+    <Style Selector="Button:pressed">
+        <Setter Property="Background" Value="{StaticResource DarkGrayBlueBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Opacity" Value="1"/>
+    </Style>
+
+    <!-- Estilos para controles de entrada - MODO OSCURO -->
+    <Style Selector="TextBox">
+        <Setter Property="Background" Value="{StaticResource SurfaceBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource DarkGrayBlueBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="8,6"/>
+        <Setter Property="CornerRadius" Value="3"/>
+    </Style>
+
+    <Style Selector="TextBox:focus">
+        <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+    </Style>
+
+    <Style Selector="ComboBox">
+        <Setter Property="Background" Value="{StaticResource SurfaceBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource DarkGrayBlueBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="8,6"/>
+        <Setter Property="CornerRadius" Value="3"/>
+    </Style>
+
+    <Style Selector="NumericUpDown">
+        <Setter Property="Background" Value="{StaticResource SurfaceBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource DarkGrayBlueBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="3"/>
+    </Style>
+
+    <!-- Estilos para CheckBox -->
+    <Style Selector="CheckBox">
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+    </Style>
+
+    <!-- Estilos para Border/Panel containers - MODO OSCURO -->
+    <Style Selector="Border.card">
+        <Setter Property="Background" Value="{StaticResource SurfaceBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="Padding" Value="16"/>
+    </Style>
+
+    <!-- Estilos para ListBox - MODO OSCURO -->
+    <Style Selector="ListBox">
+        <Setter Property="Background" Value="{StaticResource SurfaceBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+
+    <Style Selector="ListBoxItem">
+        <Setter Property="Padding" Value="8"/>
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+    </Style>
+
+    <Style Selector="ListBoxItem:selected">
+        <Setter Property="Background" Value="{StaticResource AccentBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+    </Style>
+
+    <Style Selector="ListBoxItem:pointerover">
+        <Setter Property="Background" Value="{StaticResource BackgroundSecondaryBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextSecondaryBrush}"/>
+    </Style>
+
+    <!-- Separador personalizado -->
+    <Style Selector="Separator">
+        <Setter Property="Background" Value="{StaticResource LightAquaBrush}"/>
+        <Setter Property="Height" Value="1"/>
+        <Setter Property="Margin" Value="0,8"/>
+    </Style>
+
+</Styles>
