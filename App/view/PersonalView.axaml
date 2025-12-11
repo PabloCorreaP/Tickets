@@ -1,0 +1,54 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:PracticaDIA.UI.ViewModels"
+        mc:Ignorable="d"
+        x:Class="PracticaDIA.UI.Views.PersonalView"
+        x:DataType="vm:PersonalViewModel"
+        Title="Gestión de Personal"
+        Width="700" Height="450">
+
+    <Design.DataContext>
+        <vm:PersonalViewModel/>
+    </Design.DataContext>
+
+    <Grid Margin="12" RowDefinitions="Auto,*,Auto">
+        <TextBlock Grid.Row="0" Text="Gestión de Personal" FontSize="20" HorizontalAlignment="Center"/>
+
+        <Grid Grid.Row="1" ColumnDefinitions="2*,3*" ColumnSpacing="10">
+            <Border Classes="card" Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="Trabajadores" FontWeight="SemiBold" Margin="6"/>
+                    <ListBox ItemsSource="{Binding Trabajadores}" SelectedItem="{Binding Seleccionado}" Margin="6"/>
+                </StackPanel>
+            </Border>
+
+            <Border Classes="card" Grid.Column="1">
+                <StackPanel Margin="6">
+                    <TextBlock Text="Detalles" FontWeight="SemiBold"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                        <TextBlock Text="DNI:" Width="80"/>
+                        <TextBlock Text="{Binding Seleccionado.DNI}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                        <TextBlock Text="Nombre:" Width="80"/>
+                        <TextBlock Text="{Binding Seleccionado.Nombre}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                        <TextBlock Text="Email:" Width="80"/>
+                        <TextBlock Text="{Binding Seleccionado.Email}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,8,0,0">
+            <Button Content="Nuevo" Click="Nuevo_Click" Margin="6"/>
+            <Button Content="Editar" Click="Editar_Click" Margin="6"/>
+            <Button Content="Eliminar" Click="Eliminar_Click" Margin="6"/>
+            <Button Content="Guardar" Click="Guardar_Click" Margin="6"/>
+            <Button Content="Cerrar" Click="Cerrar_Click" Margin="6"/>
+        </StackPanel>
+    </Grid>
+</Window>

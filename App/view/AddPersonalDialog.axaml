@@ -1,0 +1,33 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="PracticaDIA.UI.Views.AddPersonalDialog"
+        Title="Añadir / Editar Trabajador"
+        Width="400" Height="260">
+
+    <Grid Margin="12" RowDefinitions="Auto,Auto,Auto,Auto,Auto" RowSpacing="6">
+        <TextBlock Grid.Row="0" Text="Datos del trabajador" FontWeight="SemiBold"/>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock Text="DNI:" Width="80" VerticalAlignment="Center"/>
+            <TextBox Name="TxtDNI" Width="250"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <TextBlock Text="Nombre:" Width="80" VerticalAlignment="Center"/>
+            <TextBox Name="TxtNombre" Width="250"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <TextBlock Text="Email:" Width="80" VerticalAlignment="Center"/>
+            <TextBox Name="TxtEmail" Width="250"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="8">
+            <Button Content="Aceptar" Click="Aceptar_Click"/>
+            <Button Content="Cancelar" Click="Cancelar_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
