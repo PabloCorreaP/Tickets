@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ticketsIndividual.Core
 {
@@ -17,15 +14,19 @@ namespace ticketsIndividual.Core
             this.tickets = tickets1;
         }
 
-        public String[] Search(string encargado, string cliente)
+        public List<String> SearchCliente(string nombre)
         {
-            var toret =  from ticket in this.tickets
-                   where ticket.cliente.nombre.Equals(cliente)
-                   && ticket.encargado.nombre.Equals(encargado)
+            return (from ticket in this.tickets
+                   where ticket.cliente.nombre.Equals(nombre)
                    orderby ticket.asunto
-                   select ticket.asunto;
-
-            return toret.ToArray();
+                   select ticket.asunto).ToList();
+        }
+        public List<String> SearchPersonal(string nombre)
+        {
+            return (from ticket in this.tickets
+                   where ticket.encargado.nombre.Equals(nombre)
+                   orderby ticket.asunto
+                   select ticket.asunto).ToList();
         }
     }
 }

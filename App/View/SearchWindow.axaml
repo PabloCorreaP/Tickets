@@ -24,7 +24,8 @@
 
 	
 		<StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Right">
-			<Button Padding="10" Name="SearchBT">Buscar</Button>
+			<Button Padding="10" Name="SearchClientBT">Buscar cliente</Button>
+			<Button Padding="10" Name="SearchPersonalBT">Buscar encargado</Button>
 			<Button Padding="10" Name="CancelButton">Cancelar</Button>
 		</StackPanel>
 	</StackPanel>

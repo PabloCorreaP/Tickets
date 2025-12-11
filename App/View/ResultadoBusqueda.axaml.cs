@@ -1,18 +1,19 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using System.Collections.Generic;
 
 namespace App;
 
 public partial class ResultadoBusqueda : Window
 {
-    public ResultadoBusqueda(string[] tickets)
+    public ResultadoBusqueda(List<string> tickets)
     {
         InitializeComponent();
         var btCancel = this.GetControl<Button>("CancelButton");
         var failTicketsTB = this.GetControl<TextBlock>("FailTickets");
         btCancel.Click += (_, _) => this.OnExit();
-        if (tickets.Length != 0)
+        if (tickets.Count != 0)
         {
             ResultadoLB.IsVisible = true;
             failTicketsTB.IsVisible = false;

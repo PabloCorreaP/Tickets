@@ -16,23 +16,30 @@ partial class SearchWindow : Window
     {
         InitializeComponent();
         buscador = new Busquedas(t);
-        var btSearch = this.GetControl<Button>("SearchBT");
+        var btSearchCliente = this.GetControl<Button>("SearchClientBT");
+        var btSearchPersonal = this.GetControl<Button>("SearchPersonalBT");
         var btCancel = this.GetControl<Button>("CancelButton");
 
-        btSearch.Click += (_, _) => this.OnSearch();
+        btSearchCliente.Click += (_, _) => this.OnSearchCliente();
+        btSearchPersonal.Click += (_, _) => this.OnSearchPersonal();
         btCancel.Click += (_, _) => this.OnExit();
 
     }
 
-    private void OnSearch()
+    private void OnSearchCliente()
     {
         var cliente = this.GetControl<TextBox>("ClientName");
+        List<String> ticketsEncontrados = buscador.SearchCliente(cliente.Text ?? "");
+        OnViewResult(ticketsEncontrados);
+    }
+    private void OnSearchPersonal()
+    {
         var encargado = this.GetControl<TextBox>("PersonalName");
-        IEnumerable<string> ticketsEncontrados = buscador.Search(encargado.Text ?? "" ,cliente.Text ?? "");
-        OnViewResult(ticketsEncontrados.ToArray());
+        List<String> ticketsEncontrados = buscador.SearchPersonal(encargado.Text ?? "");
+        OnViewResult(ticketsEncontrados);
     }
 
-    private void OnViewResult(string[] tickets)
+    private void OnViewResult(List<String> tickets)
     {
         var res = new ResultadoBusqueda(tickets);
         res.ShowDialog(this);
