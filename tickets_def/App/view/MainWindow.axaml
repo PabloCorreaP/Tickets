@@ -1,0 +1,65 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:App"
+        mc:Ignorable="d"
+        x:Class="App.MainWindow"
+        x:DataType="vm:MainViewModel"
+        d:DesignWidth="900" d:DesignHeight="600"
+        Title="Gestión de Tickets - Búsquedas">
+
+  <Grid RowDefinitions="Auto, Auto, *" Margin="16">
+    <!-- Franja de estado: filtros activos y número de resultados -->
+    <Border Grid.Row="0" Padding="8" Margin="0,0,0,12" BorderBrush="LightGray" BorderThickness="1" CornerRadius="6">
+      <StackPanel Orientation="Horizontal" Spacing="16">
+        <TextBlock Text="Resultado:" FontWeight="Bold"/>
+        <TextBlock Text="{Binding ResultadoSel.Label}"/>
+        <TextBlock Text="Estado:" FontWeight="Bold" Margin="16,0,0,0"/>
+        <TextBlock Text="{Binding EstadoSel.Label}"/>
+        <TextBlock Text=" | Resultados:" FontWeight="Bold" Margin="16,0,0,0"/>
+        <TextBlock Text="{Binding Tickets.Count}"/>
+      </StackPanel>
+    </Border>
+
+    <!-- Filtros -->
+    <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="12">
+      <StackPanel>
+        <TextBlock Text="Resultado" FontWeight="Bold"/>
+        <ComboBox Width="220"
+                  ItemsSource="{Binding OpcionesResultado}"
+                  SelectedItem="{Binding ResultadoSel}"/>
+      </StackPanel>
+      <StackPanel>
+        <TextBlock Text="Estado" FontWeight="Bold"/>
+        <ComboBox Width="220"
+                  ItemsSource="{Binding OpcionesEstado}"
+                  SelectedItem="{Binding EstadoSel}"/>
+      </StackPanel>
+    </StackPanel>
+
+    <!-- Lista de resultados -->
+    <ListBox Grid.Row="2" Margin="0,12,0,0" ItemsSource="{Binding Tickets}">
+      <ListBox.ItemTemplate>
+        <DataTemplate x:DataType="vm:Ticket">
+          <Border Padding="10" Margin="0,6" BorderBrush="Gray" BorderThickness="1" CornerRadius="6">
+            <StackPanel>
+              <TextBlock Text="{Binding Asunto}" FontSize="16" FontWeight="Bold"/>
+              <TextBlock Text="{Binding Notas}" />
+              <TextBlock Text="{Binding ClienteOrigen.Nombre}" />
+              <TextBlock Text="{Binding TrabajadorEncargado.Nombre}" />
+              <StackPanel Orientation="Horizontal" Spacing="8">
+                <TextBlock Text="Resultado:" FontWeight="Bold"/>
+                <TextBlock Text="{Binding Resultado}" />
+                <TextBlock Text=" | " />
+                <TextBlock Text="Estado:" FontWeight="Bold"/>
+                <TextBlock Text="{Binding Estado}" />
+              </StackPanel>
+              <TextBlock Text="{Binding Id}" FontSize="10" Opacity="0.6"/>
+            </StackPanel>
+          </Border>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+  </Grid>
+</Window>
